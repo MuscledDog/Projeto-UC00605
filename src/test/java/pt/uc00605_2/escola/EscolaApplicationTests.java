@@ -1,10 +1,10 @@
-package pt.projeto_uc00605.Java;
+package pt.uc00605_2.escola;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaApplicationTests {
+class EscolaApplicationTests {
 
 	@Test
 	void contextLoads() {

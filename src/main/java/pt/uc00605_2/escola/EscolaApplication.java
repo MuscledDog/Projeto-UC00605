@@ -1,13 +1,13 @@
-package pt.projeto_uc00605.Java;
+package pt.uc00605_2.escola;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaApplication {
+public class EscolaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaApplication.class, args);
+		SpringApplication.run(EscolaApplication.class, args);
 	}
 
 }
