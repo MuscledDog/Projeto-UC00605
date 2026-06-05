@@ -47,5 +47,23 @@ public class CourseService {
         }).orElseThrow(() -> new ResourceNotFoundException("Course já apagado ou inexistente" +id));
     }
 
-    
+    /** Update Course */
+public Course updateCourse(@Positive @NonNull Long id, Course frontCourse){
+    /**1º trazer para máquina o que temos na DB */
+    /**2º criar uma variável que tem o course atualizado */
+    return this.repository.findById(id).map(backCourse -> {
+        backCourse.setName(frontCourse.getName());
+        backCourse.setCategory(frontCourse.getCategory());
+        /** ter de apagar a minha lista que está em memória */
+        backCourse.getLessons().clear();
+        frontCourse.getLessons().forEach(data -> backCourse.getLessons().add(data));
+        /** salvar na base de dados */
+        this.repository.save(backCourse);
+        /* devolve para o frontend o Objeto atualizado */
+        return backCourse;        
+    }).orElseThrow(()-> new ResourceNotFoundException("Course not found ID:" + id));
+    }
+
+
+
 }

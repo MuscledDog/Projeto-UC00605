@@ -19,6 +19,8 @@ import pt.uc00605_2.escola.model.Course;
 import pt.uc00605_2.escola.service.CourseService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -59,4 +61,9 @@ public void delete(@PathVariable @NonNull @Positive Long id) {
     this.service.deleteCourse(id);
     }
 
+@PutMapping("path/{id}")
+public Course putMethodName(@PathVariable @NonNull @Positive Long id, @RequestBody @Valid Course course) {
+    
+    return this.service.updateCourse(id, course)
+    }
 }
